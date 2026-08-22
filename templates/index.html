@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MongoDB Data Submission</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="background">
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+    <main class="page-container">
+
+
+        <section class="hero-section">
+
+
+            <div class="brand-badge">
+
+                <div class="brand-icon">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <p>FLASK × MONGODB ATLAS</p>
+
+            </div>
+
+
+            <h1>
+
+                Build Your
+
+                <span>Cloud Data Profile</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Submit your professional details securely through
+                our Flask application and store your information
+                directly in MongoDB Atlas.
+
+            </p>
+
+
+            <div class="feature-list">
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">✓</div>
+
+                    <div>
+
+                        <h3>Cloud Connected</h3>
+
+                        <p>
+                            Your data is securely stored
+                            in MongoDB Atlas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">⚡</div>
+
+                    <div>
+
+                        <h3>Fast Submission</h3>
+
+                        <p>
+                            Submit your information
+                            through the Flask API.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">◈</div>
+
+                    <div>
+
+                        <h3>API Powered</h3>
+
+                        <p>
+                            Access imported database
+                            records through the API.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tech-stack">
+
+                <span>Python</span>
+
+                <span>Flask</span>
+
+                <span>MongoDB</span>
+
+                <span>Atlas</span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <section class="form-section">
+
+
+            <div class="form-card">
+
+
+                <div class="card-glow"></div>
+
+
+                <div class="form-header">
+
+
+                    <div class="form-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+
+                            <path
+                                d="M12 2C6.48 2 2 4.24 2 7C2 9.76 6.48 12 12 12C17.52 12 22 9.76 22 7C22 4.24 17.52 2 12 2Z"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <path
+                                d="M2 7V12C2 14.76 6.48 17 12 17C17.52 17 22 14.76 22 12V7"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <path
+                                d="M2 12V17C2 19.76 6.48 22 12 22C17.52 22 22 19.76 22 17V12"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>Submit Your Data</h2>
+
+                        <p>
+                            Complete the form below
+                            to save your details.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                {% if error %}
+
+                    <div class="error-message">
+
+                        <div class="error-icon">
+                            !
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Submission Failed
+                            </strong>
+
+                            <p>
+                                {{ error }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+
+
+                <form
+                    action="/submit"
+                    method="POST"
+                    id="userForm"
+                >
+
+
+                    <div class="input-group">
+
+
+                        <label for="name">
+
+                            Full Name
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <div class="input-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <circle
+                                        cx="12"
+                                        cy="8"
+                                        r="4"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M4 21C4 17.13 7.58 14 12 14C16.42 14 20 17.13 20 21"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                            >
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+
+                        <label for="email">
+
+                            Email Address
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <div class="input-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M3 7L12 13L21 7"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                            >
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+
+                        <label for="role">
+
+                            Professional Role
+
+                            <span>*</span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <div class="input-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <rect
+                                        x="3"
+                                        y="7"
+                                        width="18"
+                                        height="13"
+                                        rx="2"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M8 7V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V7"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M3 12H21"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <input
+                                type="text"
+                                id="role"
+                                name="role"
+                                placeholder="e.g. DevOps Engineer"
+                            >
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+
+
+                        <span class="button-background"></span>
+
+
+                        <span class="button-content">
+
+
+                            <span>
+                                Submit Data
+                            </span>
+
+
+                            <span class="button-arrow">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <path
+                                        d="M5 12H19"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                    />
+
+                                    <path
+                                        d="M13 6L19 12L13 18"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+
+                        </span>
+
+
+                        <span class="button-shine"></span>
+
+
+                    </button>
+
+
+                </form>
+
+
+
+                <div class="security-message">
+
+
+                    <div class="lock-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="11"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+
+                            <path
+                                d="M8 10V7C8 4.79 9.79 3 12 3C14.21 3 16 4.79 16 7V10"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <span>
+                        Your data is securely processed
+                        and stored in MongoDB Atlas.
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+
+
+        <p>
+
+            Flask MongoDB Assignment
+
+            <span>•</span>
+
+            Built with Python & MongoDB Atlas
+
+        </p>
+
+
+    </footer>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+</html>
